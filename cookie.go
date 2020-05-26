@@ -387,7 +387,7 @@ func (c *Cookie) ParseBytes(src []byte) error {
 				}
 
 			case 's': // "samesite"
-				if caseInsensitiveCompare(strCookieSameSite, kv.key) {
+				if caseInsensitiveCompare(strCookieSameSite, kv.key) && len(kv.value) > 0 {
 					// Case insensitive switch on first char
 					switch kv.value[0] | 0x20 {
 					case 'l': // "lax"
